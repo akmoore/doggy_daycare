@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+    before_action :set_dog, only: [:show, :edit, :update]
+
     def index
         @dogs = Dog.all
     end
@@ -20,7 +23,21 @@ class DogsController < ApplicationController
     end
 
     def show
-        @dog = Dog.find(params[:id])
+        # @dog = Dog.find(params[:id])
+    end
+
+    def edit
+        # @dog = Dog.find(params[:id])
+    end
+
+    def update
+        # @dog = Dog.find(params[:id])
+        if @dog.update(dog_params)
+            redirect_to dog_url(@dog), notice: 'Successfully updated.'
+        else
+            flash.now[:notice] = "Something went wrong. We couldn't update #{@dog.name}."
+            render :edit
+        end
     end
 
     private
@@ -28,4 +45,8 @@ class DogsController < ApplicationController
     def dog_params
         params.require(:dog).permit(:name, :age, :breed)
     end 
+
+    def set_dog
+        @dog = Dog.find(params[:id])
+    end
 end
