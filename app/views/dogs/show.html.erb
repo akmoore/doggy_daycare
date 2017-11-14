@@ -3,6 +3,9 @@
 </div>
 
 <h1>Details for <%= @dog.name %> </h1>
+<% if @dog.owner %>
+    <h2>Owner: <%= @dog.owner %></h2>
+<% end %>
 
 <p>
     <strong>Id:</strong> <%= @dog.id %>
