@@ -15,6 +15,7 @@
             <th>Age</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
                 <td><%= puppy.age %></td>
                 <td><%= link_to "Show", dog_path(puppy), class: 'btn btn-info' %></td>
                 <td><%= link_to "Edit", edit_dog_path(puppy), class: 'btn btn-success' %></td>
+                <td><%= link_to "Delete", puppy, method: :delete, data:{confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
             </tr>
         <% end %>
     </tbody>
