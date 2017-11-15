@@ -4,7 +4,7 @@
 
 <h1>Details for <%= @dog.name %> </h1>
 <% if @dog.owner %>
-    <h2>Owner: <%= @dog.owner %></h2>
+    <h2>Owner: <%= @dog.owner.try(:name) %></h2>
 <% end %>
 
 <p>
